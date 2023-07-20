@@ -1,5 +1,6 @@
 <h1 align="center">PassGen</h1>
 <h3 align="center">(Simple) Password Generator and Checker</h3>
+<h4 align="center">Support Windows and macOS</h4>
 <h4 align="center">Open-source project write by Python</h4>
 <p align="center">
 <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/gorouflex/passgen?style=for-the-badge">
