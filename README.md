@@ -39,7 +39,7 @@ python3 -m pip install -r [requirements.txt path]
 2.Run .py file and enjoy!
 
 # Caution
-**`PassGen` is based on 2 library : `urllib3` and `zxcvbn` ,so for the proper functionality please make you that connected to a fine Internet (Slowed Internet may cause some problem)**
+**`PassGen` is based on 2 library : `urllib3` and `zxcvbn` ,so for the proper functionality please make sure that you have connected to a fine Internet (Slowed Internet may cause some problem)**
 # Preview
 <h1 align="center">Main GUI and Updater</h1>
 <p align="center">          
