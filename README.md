@@ -40,6 +40,7 @@ python3 -m pip install -r [requirements.txt path]
 <p align="center">          
   <img src="https://github.com/gorouflex/PassGen/assets/98001973/aa7e1040-95db-42d3-a1f7-080d5f1c2bfa">
 </p>
+
 # Special thanks to
 
 - @NotchApple1703 for optimize the code
