@@ -19,24 +19,18 @@
 
 - Password generator
 - Password checker and rating how secure your password is
+- Save your generated password
 
-# Cautions!
-
-For macOS, the password.txt is saved to this following path:
-Right click to 'PassGen.app' -> Show Package Contents -> Contents -> Resources -> password.txt
 
 # Installation
 
 ### For Py/Source version
 
-- Please download [requirements.txt](https://github.com/gorouflex/afkbot/files/12103798/requirements.txt) and run 
+1.Please download [requirements.txt](https://github.com/gorouflex/afkbot/files/12103798/requirements.txt) and run 
 ```
 pip install -r requirements.txt 
 ```
-
-### For Portable version 
-- Just simply run .exe or .app file
-
+2.Run .py file and enjoy!
 # Preview
 
 ![Screen Shot 2023-07-19 at 22 29 09](https://github.com/gorouflex/PassGen/assets/98001973/fc7b0c22-a483-4041-a5e8-3d36660675b1)
