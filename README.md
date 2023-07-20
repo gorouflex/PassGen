@@ -28,9 +28,18 @@
 
 1.Please download [requirements.txt](https://github.com/gorouflex/afkbot/files/12103798/requirements.txt) and run 
 ```
-pip install -r requirements.txt 
+pip install -r [requirements.txt path]
+```
+or
+```
+python3 -m pip install -r [requirements.txt path]
 ```
 2.Run .py file and enjoy!
 # Preview
+<h1 align="center">Main GUI and Updater</h1>
+<p align="center">          
+  <img src="https://github.com/gorouflex/PassGen/assets/98001973/aa7e1040-95db-42d3-a1f7-080d5f1c2bfa">
+</p>
+# Special thanks to
 
-![Screen Shot 2023-07-19 at 22 29 09](https://github.com/gorouflex/PassGen/assets/98001973/fc7b0c22-a483-4041-a5e8-3d36660675b1)
+- @NotchApple1703 for optimize the code
