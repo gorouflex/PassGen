@@ -17,7 +17,7 @@
   <a href="#preview">Preview</a>       
 </p>
 
-# Features
+# Feature
 
 - Password generator
 - Password checker and rating how secure your password is
