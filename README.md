@@ -8,7 +8,7 @@
 <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/gorouflex/passgen/total?style=for-the-badge">
 </p>
 <p align="center">
-  <a href="#features">Features</a>
+  <a href="#feature">Feature</a>
   •
   <a href="#installation">Installation</a>
   •
