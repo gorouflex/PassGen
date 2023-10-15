@@ -1,0 +1,53 @@
+name: CL
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+        fetch-depth: 0
+    - name: Set release tag and title
+      id: set_release_tag_title
+      run: |
+        release_tag="1.0.1AlPreview"
+        release_title="1.0.1 Alpha Preview"
+        echo "::set-output name=release_tag::$release_tag"
+        echo "::set-output name=release_title::$release_title"
+      shell: bash
+
+    - name: Zip folder
+      run: |
+        sudo apt-get install -y zip
+        zip -r PassGen.zip PassGen
+      working-directory: ${{ github.workspace }}
+
+    - name: Set up Git
+      run: |
+        git config --global user.email "github-actions@github.com"
+        git config --global user.name "GitHub Actions"
+
+    - name: Update release
+      run: |
+        release_tag="1.0.1-AlPreview"
+        release_title="1.0.1 Alpha Preview"
+
+        commit_history=$(git log -5 --graph --oneline)
+
+        if gh release view "$release_tag" &>/dev/null; then
+          gh release delete "$release_tag" --yes
+        fi
+
+        gh release create "$release_tag" ./PassGen.zip --title "$release_title" --prerelease --notes "### Alpha Preview version is not recommended to use, only for testing purpose!
+        ### The latest commits are:  
+        $commit_history"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
