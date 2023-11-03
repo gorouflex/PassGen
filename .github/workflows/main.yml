@@ -11,23 +11,22 @@ jobs:
 
     steps:
     - name: Check out code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         ref: ${{ github.event.pull_request.head.sha }}
         fetch-depth: 0
+
     - name: Set release tag and title
       id: set_release_tag_title
       run: |
-        release_tag="1.0.1AlPreview"
-        release_title="1.0.1 Alpha Preview"
-        echo "::set-output name=release_tag::$release_tag"
-        echo "::set-output name=release_title::$release_title"
+        echo "::set-output name=release_tag::1.0.1-Beta"
+        echo "::set-output name=release_title::1.0.1 Beta"
       shell: bash
 
-    - name: Zip folder
+    - name: Install zip and create zip file
       run: |
         sudo apt-get install -y zip
-        zip -r PassGen.zip PassGen
+        zip -r PassGen-Beta.zip PassGen-Beta
       working-directory: ${{ github.workspace }}
 
     - name: Set up Git
@@ -37,17 +36,14 @@ jobs:
 
     - name: Update release
       run: |
-        release_tag="1.0.1-AlPreview"
-        release_title="1.0.1 Alpha Preview"
-
         commit_history=$(git log -5 --graph --oneline)
 
-        if gh release view "$release_tag" &>/dev/null; then
-          gh release delete "$release_tag" --yes
+        if gh release view "${{ steps.set_release_tag_title.outputs.release_tag }}" &>/dev/null; then
+          gh release delete "${{ steps.set_release_tag_title.outputs.release_tag }}" --yes
         fi
 
-        gh release create "$release_tag" ./PassGen.zip --title "$release_title" --prerelease --notes "### Alpha Preview version is not recommended to use, only for testing purpose!
-        ### The latest commits are:  
+        gh release create "${{ steps.set_release_tag_title.outputs.release_tag }}" ./PassGen-Beta.zip --title "${{ steps.set_release_tag_title.outputs.release_title }}" --prerelease --notes "### Beta version is not recommended to use, only for testing purpose!
+        ### Latest commits :  
         $commit_history"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
