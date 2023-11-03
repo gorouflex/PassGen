@@ -43,7 +43,7 @@ class InfoWindow(customtkinter.CTk):
 
         self.buttons = [
             ["Open Github", open_github],
-            ["Changelog", open_releases],
+            ["Change log", open_releases],
         ]
 
         for i in range(2):
@@ -83,8 +83,28 @@ class MainWindow(customtkinter.CTk):
                                              corner_radius=5, command=self.buttons[i][1])
             button.pack(pady=5)
 
-        self.version_label = customtkinter.CTkLabel(self, width=215, text=f"Version 1.0.1", font=("", 14))
+        self.version_label = customtkinter.CTkLabel(self, width=215, text=f"Version 1.0.2", font=("", 14))
         self.version_label.pack(pady=5)
+        self.check_for_updates()
+
+        
+    def check_for_updates(self):
+        local_version = "1.0.2"
+        latest_version = get_latest_version()
+        
+        if local_version < latest_version:
+            self.withdraw()
+            result = messagebox.askquestion(
+                "Update Available",
+                "A new update has been found!.\nDo you want to visit the GitHub page for more details?",
+                icon="warning"
+            )
+            self.deiconify()
+            if result == "yes":
+                webbrowser.open("https://github.com/gorouflex/passgen/releases/latest")
+            self.destroy()
+        else:
+            pass
 
     def start_gen(self):
         password = "".join(map(chr, random.choices(range(33, 127), k=16)))
