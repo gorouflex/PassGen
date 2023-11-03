@@ -1,6 +1,4 @@
 # Change log
-## v0.1.7
-- Add ODB Beta Program to CFU
-- Seperate `ODB` to `ODB` and `ODB-Beta`
-- Reorder elements
-- Rework GitHub Actions
+- Setup GitHub Actions
+- Add CFU feature
+## Like AFKBot and ODB i will force user to update to the latest version starting from this version
