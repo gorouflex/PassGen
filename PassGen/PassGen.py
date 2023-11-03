@@ -83,13 +83,13 @@ class MainWindow(customtkinter.CTk):
                                              corner_radius=5, command=self.buttons[i][1])
             button.pack(pady=5)
 
-        self.version_label = customtkinter.CTkLabel(self, width=215, text=f"Version 1.0.2", font=("", 14))
+        self.version_label = customtkinter.CTkLabel(self, width=215, text=f"Version 1.0.1", font=("", 14))
         self.version_label.pack(pady=5)
         self.check_for_updates()
 
         
     def check_for_updates(self):
-        local_version = "1.0.2"
+        local_version = "1.0.1"
         latest_version = get_latest_version()
         
         if local_version < latest_version:
