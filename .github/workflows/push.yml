@@ -31,7 +31,7 @@ jobs:
     - name: Zip folder
       run: |
         sudo apt-get install -y zip
-        zip -r ODB.zip ODB
+        zip -r PassGen.zip PassGen
       working-directory: ${{ github.workspace }}
 
     - name: Set up Git
@@ -50,6 +50,6 @@ jobs:
           gh release delete "$release_tag" --yes
         fi
 
-        gh release create "$release_tag" ./ODB.zip --title "$release_title" --notes "$changelog"
+        gh release create "$release_tag" ./PassGen.zip --title "$release_title" --notes "$changelog"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
