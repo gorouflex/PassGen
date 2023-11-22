@@ -25,7 +25,7 @@ def info_window():
     InfoWindow().mainloop()
 
 def check_for_updates():
-    local_version = "1.0.1"
+    local_version = "1.1.0"
     latest_version = get_latest_version()
 
     if local_version < latest_version:
@@ -69,7 +69,7 @@ class InfoWindow(customtkinter.CTk):
 
         self.buttons = [
             ["Open Github", open_github],
-            ["Changelog", open_releases],
+            ["Change log", open_releases],
         ]
 
         for i in range(2):
@@ -108,7 +108,7 @@ class MainWindow(customtkinter.CTk):
                                              corner_radius=5, command=self.buttons[i][1])
             button.pack(pady=5)
 
-        self.version_label = customtkinter.CTkLabel(self, width=215, text=f"Version 1.0.1", font=("", 14))
+        self.version_label = customtkinter.CTkLabel(self, width=215, text=f"Version 1.1.0 (Beta)", font=("", 14))
         self.version_label.pack(pady=5)
 
     def start_gen(self):
