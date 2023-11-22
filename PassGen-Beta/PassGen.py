@@ -3,6 +3,7 @@ import urllib3
 import random
 import zxcvbn
 import customtkinter
+import sys
 from tkinter import messagebox
 
 
@@ -23,6 +24,31 @@ def open_releases():
 def info_window():
     InfoWindow().mainloop()
 
+def check_for_updates():
+    local_version = "1.0.1"
+    latest_version = get_latest_version()
+
+    if local_version < latest_version:
+        result = messagebox.askquestion(
+            "Update Available",
+            "A new update has been found! Please use the Updater to install the latest version.\nOtherwise, the app will exit.\nDo you want to visit the GitHub page for more details?",
+            icon="warning"
+        )
+        if result == "yes":
+            webbrowser.open("https://github.com/gorouflex/passgen/releases/latest")
+        sys.exit()
+    elif local_version > latest_version:
+        result = messagebox.askquestion(
+            "PassGen Beta Program",
+            "Welcome to PassGen Beta Program.\nThis build may not be as stable as expected.\nOnly for testing purposes!",
+            icon="warning"
+        )
+        if result == "no":
+            sys.exit()
+        else:
+            pass
+    else:
+        pass
 
 class InfoWindow(customtkinter.CTk):
     def __init__(self):
@@ -61,7 +87,6 @@ class MainWindow(customtkinter.CTk):
     def __init__(self):
         super().__init__()
         self.title('PassGen')
-        self.title = "PassBot"
         self.geometry("250x350")
         self.resizable(False, False)
 
@@ -112,5 +137,6 @@ class MainWindow(customtkinter.CTk):
         
 
 if __name__ == '__main__':
+    check_for_updates()
     app = MainWindow()
     app.mainloop()
