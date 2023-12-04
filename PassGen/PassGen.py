@@ -45,10 +45,6 @@ def check_for_updates():
         )
         if result == "no":
             sys.exit()
-        else:
-            pass
-    else:
-        pass
 
 class InfoWindow(customtkinter.CTk):
     def __init__(self):
@@ -108,7 +104,9 @@ class MainWindow(customtkinter.CTk):
                                              corner_radius=5, command=self.buttons[i][1])
             button.pack(pady=5)
 
-        self.version_label = customtkinter.CTkLabel(self, width=215, text=f"Version 1.0.2 (Stable)", font=("", 14))
+        self.version_label = customtkinter.CTkLabel(
+            self, width=215, text="Version 1.0.2 (Stable)", font=("", 14)
+        )
         self.version_label.pack(pady=5)
 
     def start_gen(self):
